@@ -6,7 +6,7 @@ def make_entry(x):
         file.write(pk.save_pkcs1("PEM"))
     
     with open("Userlog/Userlog.txt","a") as f :
-        f.writelines(x)
+        f.writelines(x+"\n")
 
     with open("SK.pem","wb") as F :
         F.write(sk.save_pkcs1("PEM"))
