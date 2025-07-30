@@ -1,0 +1,17 @@
+-First make a proper example convo.json file (Done)
+-Make a verification mechanism 
+  *these are the things to be satisfied 
+    -pk in convo log should match the actual pk from userlog
+    -verify the signature of both parties 
+  *if not satisfied it would be missing reciever signature(mostly) , so wait till we get that
+- once these are verified , the msg shall be written into unverified log with all the details
+- add the msg to my log with convo no of the msg and message (no other details is required)
+- update the convo log wiht your sign and wait for other party to sign 
+
+sub plan 1 :
+-convert the keys to pkcs1 format and when loading it we should convert to normal key format
+  * for converting to json storable
+    - use : pk.save_pkcs1().decode('ascii') # basically we are decoding the binary shit to ascii
+  * for converting back to normal key
+    - use : rsa.PublicKey.load_pkcs1(pk.encode('ascii'))
+-encode the sign to base64 and decode to base 64 when verification
